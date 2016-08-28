@@ -1,0 +1,186 @@
+/*
+  Blink
+  Turns on an LED on for one second, then off for one second, repeatedly.
+ 
+  This example code is in the public domain.
+ */
+ 
+// Pin 13 has an LED connected on most Arduino boards.
+// give it a name:
+
+// RGB LED:
+int ledOne = 2;  //RED
+int ledTwo = 3;  //GREEN
+int ledThree = 4;  //BLUE
+
+// LED ARRAY:
+int RedOneLed = 5;  //Red Wire First Led
+int OrangeOneLed = 6;  //Orange wire Second Led
+int YellowOneLed = 7;  //Yellow Wire Third Led
+int GreenOneLed = 8;  //Green Wire Fourth Led
+int BlueOneLed = 9;  //Blue Wire Fifth Led
+int PurpleOneLed = 10;  //Purple Wire Sixth Led
+int GrayOneLed = 11;  //Gray Wire Seventh Led
+int OrangeTwoLed = 12;  //Second Orange Wire Eighth Led
+int YellowTwoLed = 13;  //Second Yellow Wire Ninth Led
+int GreenTwoLed = A0;  //Second Green Wire Tenth Led
+
+// COUNTER:
+int count = 0;
+
+// SERIAL SETUP:
+String inputString = "";         // a string to hold incoming data
+boolean stringComplete = false;  // whether the string is complete
+
+
+// the setup routine runs once when you press reset:
+void setup() {                
+  // initialize the digital pin as an output.
+  
+  //RGB LED SETUP:
+  pinMode(ledOne, OUTPUT);
+  pinMode(ledTwo, OUTPUT);
+  pinMode(ledThree, OUTPUT);
+  
+  //LED ARRAY SETUP:
+  pinMode(RedOneLed, OUTPUT);
+  pinMode(OrangeOneLed, OUTPUT);
+  pinMode(YellowOneLed, OUTPUT);
+  pinMode(GreenOneLed, OUTPUT);
+  pinMode(BlueOneLed, OUTPUT);
+  pinMode(PurpleOneLed, OUTPUT);
+  pinMode(GrayOneLed, OUTPUT);
+  pinMode(OrangeTwoLed, OUTPUT);
+  pinMode(YellowTwoLed, OUTPUT);
+  pinMode(GreenTwoLed, OUTPUT);
+  
+  // initialize serial:
+  Serial.begin(9600);
+  // reserve 200 bytes for the inputString:
+  inputString.reserve(200);
+  
+  
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  count = count--;
+  
+  if(count == count+1){
+    //RED LED
+    digitalWrite(ledOne, HIGH);   // turn the LED on (HIGH is the voltage level)
+    delay(100);               // wait for a second
+    digitalWrite(ledOne, LOW);    // turn the LED off by making the voltage LOW
+    delay(10);               // wait for a second
+  
+    //GREEN LED
+    digitalWrite(ledTwo, HIGH);
+    delay(100);
+    digitalWrite(ledTwo, LOW);
+    delay(10);
+  
+    //BLUE LED
+    digitalWrite(ledThree, HIGH);
+    delay(100);
+    digitalWrite(ledThree, LOW);
+    delay(10);
+  }
+  
+  // print the string when a newline arrives:
+  if (stringComplete) {
+    Serial.println(inputString); 
+    // clear the string:
+    inputString = "";
+    stringComplete = false;
+  }
+  
+  Serial.println(count);  //Count Numer Of Iterations Through Loop
+   
+   if(count < 1){
+    //LED ARRAY BEGIN UP:
+    digitalWrite(RedOneLed, HIGH);
+    delay(100);
+    digitalWrite(OrangeOneLed, HIGH);
+    delay(100);
+    digitalWrite(YellowOneLed, HIGH);
+    delay(100);
+    digitalWrite(GreenOneLed, HIGH);
+    delay(100);
+    digitalWrite(BlueOneLed, HIGH);
+    delay(100);
+    digitalWrite(PurpleOneLed, HIGH);
+    delay(100);
+    digitalWrite(GrayOneLed, HIGH);
+    delay(100);
+    digitalWrite(OrangeTwoLed, HIGH);
+    delay(100);
+    digitalWrite(YellowTwoLed, HIGH);
+    delay(100);
+    digitalWrite(GreenTwoLed, HIGH);
+    delay(100);
+   
+   
+    //LED ARRAY BEGIN DOWN:
+    digitalWrite(GreenTwoLed, LOW);
+    delay(100);
+    digitalWrite(YellowTwoLed, LOW);
+    delay(100);
+    digitalWrite(OrangeTwoLed, LOW);
+    delay(100);
+    digitalWrite(GrayOneLed, LOW);
+    delay(100);
+    digitalWrite(PurpleOneLed, LOW);
+    delay(100);
+    digitalWrite(BlueOneLed, LOW);
+    delay(100);
+    digitalWrite(GreenOneLed, LOW);
+    delay(100);
+    digitalWrite(YellowOneLed, LOW);
+    delay(100);
+    digitalWrite(OrangeOneLed, LOW);
+    delay(100);
+    digitalWrite(RedOneLed, LOW);
+    delay(100);  
+   }
+   
+   while(count == count){
+     
+    //RED LED
+    digitalWrite(ledOne, HIGH);   // turn the LED on (HIGH is the voltage level)
+    delay(100);               // wait for a second
+    digitalWrite(ledOne, LOW);    // turn the LED off by making the voltage LOW
+    delay(10);               // wait for a second
+  
+    //GREEN LED
+    digitalWrite(ledTwo, HIGH);
+    delay(100);
+    digitalWrite(ledTwo, LOW);
+    delay(10);
+  
+    //BLUE LED
+    digitalWrite(ledThree, HIGH);
+    delay(100);
+    digitalWrite(ledThree, LOW);
+    delay(10);
+   }
+  
+  count++;
+  
+  if(count == 3){
+    digitalWrite(ledOne, HIGH);
+    delay(2500);
+    digitalWrite(ledOne, LOW);
+    delay(25);
+    
+    digitalWrite(ledTwo, HIGH);
+    delay(2500);
+    digitalWrite(ledTwo, LOW);
+    delay(25);
+    
+    digitalWrite(ledThree, HIGH);
+    delay(2500);
+    digitalWrite(ledThree, LOW);
+    delay(25);
+  }
+  
+}
