@@ -1,0 +1,23 @@
+                 RONS ARDUINO LED PROJECT FOR LAPTOP PC								
+								
+MICROCONTROLLER:	DATA TYPE:	VARIABLES:	MICROCONTROLLER PIN#:	DEVICE PIN#:	Wire Color:	DEVICE:	SENSOR:	NOTES:
+ARDUINO PRO MINI		VARIABLE NAME:	PIN#:	LED ARRAY:		RGB_LED:		
+Digital Pin 2	int	ledOne	D2		ORANGE	Pin 1 RED		
+GND			GND		GRAY	Pin 2 GND		
+Digital Pin 3	int	ledTwo	D3		GREEN	Pin 3 GREEN		
+Digital Pin 4	int	ledThree	D4		BLUE	Pin 4 BLUE		
+								
+MICROCONTROLLER:	DATA TYPE:	VARIABLES:	MICROCONTROLLER PIN#:	DEVICE PIN#:	Wire Color:	DEVICE:	SENSOR:	NOTES:
+Digital Pin 5	int	RedOneLed		1	RED			
+Digital Pin 6	int	OrangeOneLed		2	ORANGE			
+Digital Pin 7	int	YellowOneLed		3	YELLOW			
+Digital Pin 8	int	GreenOneLed		4	GREEN			
+Digital Pin 9	int	BlueOneLed		5	BLUE			
+Digital Pin 10	int	PurpleOneLed		6	PURPLE			
+Digital Pin 11	int	GrayOneLed		7	GRAY			
+Digital Pin 12	int	OrangeTwoLed		8	ORANGE			
+Digital Pin 13	int	YellowTwoLed		9	YELLOW			
+Analog Pin 0	int	GreenTwoLed		10	GREEN			
+								
+MICROCONTROLLER:	DATA TYPE:	VARIABLES:	MICROCONTROLLER PIN#:	DEVICE PIN#:	Wire Color:	DEVICE:	SENSOR:	NOTES:
+Internal Memory	int	count		internal memory				counts loops
