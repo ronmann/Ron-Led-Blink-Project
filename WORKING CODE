@@ -1,0 +1,397 @@
+//RON_LED_BLINK_TWO
+//
+//
+//Attempting to get Led Array and RGB to blink simltaneously.
+//
+
+//RGB LED INITIALIZATION:
+int ledOne = 2;  //RED LED
+int ledTwo = 3;  //GREEN LED
+int ledThree = 4;  //BLUE LED
+
+//LED ARRAY INITIALIZATION:
+int RedOneLed = 5;  //Red Wire First Led
+int OrangeOneLed = 6;  //Orange Wire Second Led
+int YellowOneLed = 7;  //Yellow Wire Third Led
+int GreenOneLed = 8;  //Green Wire Fourth Led
+int BlueOneLed = 9;  //Blue Wire Fifth Led
+int PurpleOneLed = 10;  //Purple Wire Sixth Led
+int GrayOneLed = 11;  //Gray Wire Seventh Led
+int OrangeTwoLed = 12;  //Second Orange Wire Eighth Led
+int YellowTwoLed = 13;  //Second Yellow Wire Ninth Led
+int GreenTwoLed = A0;  //Second Green Wire Tenth Led
+
+//COUNTER VAR INITIALIZATION:
+int count = 0;
+
+//SERIAL SETUP:
+String inputString = " ";  //String to Hold Incoming Data
+boolean stringComplete = false;  //Is the string Complete?
+
+//Remember the setup routine runs once when you reset or boot
+
+void setup(){
+  //Initialize Digital Pins As Outputs:
+  
+  //RGB LED SETUP:
+  pinMode(ledOne, OUTPUT);
+  pinMode(ledTwo, OUTPUT);
+  pinMode(ledThree, OUTPUT);
+  
+  //LED ARRAY SETUP:
+  pinMode(RedOneLed, OUTPUT);
+  pinMode(OrangeOneLed, OUTPUT);
+  pinMode(YellowOneLed, OUTPUT);
+  pinMode(GreenOneLed, OUTPUT);
+  pinMode(BlueOneLed, OUTPUT);
+  pinMode(PurpleOneLed, OUTPUT);
+  pinMode(GrayOneLed, OUTPUT);
+  pinMode(OrangeTwoLed, OUTPUT);
+  pinMode(YellowTwoLed, OUTPUT);
+  pinMode(GreenTwoLed, OUTPUT);
+  
+  //Initialize Serial:
+  Serial.begin(9600);
+  //Reserve 200 bytes for the inputString:
+  inputString.reserve(200);
+  
+}
+
+//Runs Over and Over Forever and Ever Until It Don't:
+void loop() {
+  
+  //TURN ON ALL LEDS ONE BY ONE:
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  /*
+  //Turn OFF ALL LEDS ONE BY ONE:
+  digitalWrite(ledThree, LOW);
+  delay(100);
+  digitalWrite(ledTwo, LOW);
+  delay(100);
+  digitalWrite(ledOne, LOW);
+  delay(100);
+  */
+  
+  //LED ARRAY:
+  digitalWrite(RedOneLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(OrangeOneLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(YellowOneLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(GreenOneLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(BlueOneLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(PurpleOneLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(GrayOneLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(OrangeTwoLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(YellowTwoLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(GreenTwoLed, HIGH);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  //START TURNING OFF ONE BY ONE:
+  digitalWrite(GreenTwoLed, LOW);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(YellowTwoLed, LOW);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(OrangeTwoLed, LOW);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(GrayOneLed, LOW);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(PurpleOneLed, LOW);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(BlueOneLed, LOW);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(GreenOneLed, LOW);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(YellowOneLed, LOW);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(OrangeOneLed, LOW);
+  delay(100);
+  
+  digitalWrite(ledOne, HIGH);  //RED turns on
+  delay(100);    //Waits 100 until turning on green
+  digitalWrite(ledOne, LOW);
+  delay(25);
+  digitalWrite(ledTwo, HIGH);  //GREEN turns on
+  delay(100);    //Waits 100 until turning on Blue
+  digitalWrite(ledTwo, LOW);
+  delay(25);
+  digitalWrite(ledThree, HIGH);//BLUE turns on
+  delay(100);    //All Leds are on at this point
+  digitalWrite(ledThree, LOW);
+  delay(25);
+  
+  digitalWrite(RedOneLed, LOW);
+  delay(100);
+}
+  
+  
