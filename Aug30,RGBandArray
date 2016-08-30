@@ -1,0 +1,47 @@
+
+  int timer = 100;
+  int LedArray[] = {5,6,7,8,9,10,11,12,13,A0};
+  int pinCount = 10;
+
+  //Second Array
+  int RGB[] = {2,3,4};
+  int curLed = 3;
+  int timer_Two = 100;
+
+
+void setup() {
+  // put your setup code here, to run once:
+
+  for(int cur = 0; cur < pinCount; cur++)
+    pinMode(LedArray[cur], OUTPUT);
+
+  for(int led = 0; led < curLed;led++)
+    pinMode(RGB[led], OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  //RGB LED CONTROL:
+  for(int y = 0;y < curLed;y++){
+    digitalWrite(RGB[y], HIGH);
+    delay(timer_Two);
+    digitalWrite(RGB[y], LOW);
+  }
+  //From the lowest pin to the highest
+  for(int current = 0; current < pinCount; current++){
+    digitalWrite(LedArray[current], HIGH);
+    delay(timer);
+
+    digitalWrite(LedArray[current], LOW);
+  }
+
+    //From the highest to the lowest
+    for(int Pin = pinCount - 1;Pin >= 0;Pin--){
+      digitalWrite(LedArray[Pin], HIGH);
+      delay(timer);
+
+      digitalWrite(LedArray[Pin], LOW);
+    }
+    
+}
